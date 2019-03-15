@@ -23,6 +23,32 @@ abstract class MenuObject
     public $styles = [];
 
     /**
+     * Laratrust permissions that's allowed this menu item. Pipe separated string.
+     * @var array
+     */
+    public $allow_permissions = null;
+
+    /**
+     * Laratrust roles that's allowed this menu item. Pipe separated string.
+     * @var array
+     */
+    public $allow_roles = null;
+
+    /**
+     * Laratrust permissions that's denied from this menu item. This will override any allow permissions or roles.
+     * Pipe separated string.
+     * @var array
+     */
+    public $deny_permission = null;
+
+    /**
+     * Laratrust roles that's denied form this menu item. This will override any allow permissions or roles.
+     * Pipe separated string.
+     * @var array
+     */
+    public $deny_roles = null;
+
+    /**
      * The rendered HTML string.
      * @var string
      */
@@ -37,6 +63,11 @@ abstract class MenuObject
         if($BSVersion == 3) return $this->renderBS3();
 
         if($BSVersion == 4) return $this->renderBS4();
+    }
+
+    protected function shouldRender()
+    {
+        
     }
 
     /**

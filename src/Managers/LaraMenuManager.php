@@ -154,6 +154,8 @@ class LaraMenuManager
             array_merge($link->classes, $data['styles']);
         }
 
+
+
         return $link;
     }
 
