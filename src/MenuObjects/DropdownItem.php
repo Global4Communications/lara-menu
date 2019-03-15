@@ -4,20 +4,34 @@ namespace Rinjax\LaraMenu\MenuObjects;
 
 class DropdownItem extends MenuObject
 {
+    /**
+     * Type of this menu object
+     * @var string
+     */
     protected $type = 'dropdown';
 
+    /**
+     * Text to display in the browser view
+     * @var string
+     */
     protected $displayText = '';
 
-    protected $list = [];
+    /**
+     * Array of items to appear in this dropdown
+     * @var array
+     */
+    public $list = [];
 
 
-    public function __construct($text, $route)
+    public function __construct($text)
     {
         $this->displayText = $text;
-
-        $this->route = $route;
     }
 
+    /**
+     * Render this object for Bootstrap3
+     * @return mixed|string
+     */
     protected function renderBS3()
     {
         // todo: add the classes and styles - where is best to put them?
@@ -35,18 +49,13 @@ class DropdownItem extends MenuObject
         return $this->render;
     }
 
+    /**
+     * Render this object for Bootstrap 4
+     * @return mixed|void
+     */
     protected function renderBS4()
     {
         // TODO: Implement renderBS4() method.
-    }
-
-    protected function getRoute()
-    {
-        if(substr($this->route, 0, 7) == 'http://' || substr($this->route, 0, 8) == 'https://'){
-            return $this->route;
-        }else{
-            return route($this->route);
-        }
     }
 
 }

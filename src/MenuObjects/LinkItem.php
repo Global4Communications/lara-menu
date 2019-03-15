@@ -4,10 +4,22 @@ namespace Rinjax\LaraMenu\MenuObjects;
 
 class LinkItem extends MenuObject
 {
+    /**
+     * Type of this menu object
+     * @var string
+     */
     protected $type = 'link';
 
+    /**
+     * Text to display in the browser view
+     * @var string
+     */
     protected $displayText = '';
 
+    /**
+     * The route that the link will point to.
+     * @var null
+     */
     protected $route = null;
 
 
@@ -18,6 +30,10 @@ class LinkItem extends MenuObject
         $this->route = $route;
     }
 
+    /**
+     * Render the object for Boostrap 3
+     * @return mixed|string
+     */
     protected function renderBS3()
     {
         $this->render .= '<li';
@@ -31,6 +47,10 @@ class LinkItem extends MenuObject
         return $this->render;
     }
 
+    /**
+     * Render the object for Bootstrap 4
+     * @return mixed|void
+     */
     protected function renderBS4()
     {
         $this->render .= "<a";
@@ -42,6 +62,11 @@ class LinkItem extends MenuObject
         $this->render .= "href='" . $this->getRoute() . "'>" . $this->displayText . "</a>";
     }
 
+    /**
+     * Get the Route for the link. If the string starts with 'http' then assumed a proper full link and just return that back.
+     * Otherwise will use the Laravel route() helper function to resolve the route name.
+     * @return |null
+     */
     protected function getRoute()
     {
         if(substr($this->route, 0, 7) == 'http://' || substr($this->route, 0, 8) == 'https://'){

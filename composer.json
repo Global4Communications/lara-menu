@@ -1,6 +1,7 @@
 {
     "name": "rinjax/lara-menu",
     "description": "builds bootstrap nav links for menus, from config arrays - so easy to include package menus",
+    "version": "1.0.0",
     "type": "library",
     "require": {
         "laravel/laravel": ">=5.5.0"
