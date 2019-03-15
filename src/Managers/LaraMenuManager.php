@@ -93,15 +93,15 @@ class LaraMenuManager
      */
     public function importMenu($config)
     {
-        $menus = config($config);
+        $menu = config($config);
 
-        foreach($menus as $menu){
-            switch ($menu->type){
+        foreach($menu as $item){
+            switch ($item['type']){
                 case 'link':
-                    $this->addLink($menu);
+                    $this->addLink($item);
                     break;
                 case 'dropdown':
-                    $this->addDropdown($menu);
+                    $this->addDropdown($item);
                     break;
             }
         }

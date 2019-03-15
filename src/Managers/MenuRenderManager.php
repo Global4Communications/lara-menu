@@ -16,7 +16,7 @@ class MenuRenderManager
      */
     public function renderBS3Standard($menu, $classes)
     {
-        $this->render .= "<ul" . $this->renderClasses($classes) . ">";
+        $this->render .= "<ul " . $this->renderClasses($classes) . ">";
 
         foreach($menu as $item){
             $this->render .= $item->render(3);
@@ -43,7 +43,7 @@ class MenuRenderManager
             $string .= $class . ' ';
         }
 
-        $render .= rtrim($classes);
+        $render .= rtrim($string);
         $render .= "'";
 
         return $render;
@@ -64,7 +64,7 @@ class MenuRenderManager
             $string .= $k . ': ' . $v . '; ';
         }
 
-        $render .= rtrim($styles);
+        $render .= rtrim($string);
         $render .= "'";
 
         return $render;

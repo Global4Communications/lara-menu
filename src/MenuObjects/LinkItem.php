@@ -36,7 +36,7 @@ class LinkItem extends MenuObject
      */
     protected function renderBS3()
     {
-        $this->render .= '<li';
+        $this->render .= '<li ';
 
         if(count($this->classes) > 0) $this->render .= ' ' . $this->renderClasses();
 
@@ -53,7 +53,7 @@ class LinkItem extends MenuObject
      */
     protected function renderBS4()
     {
-        $this->render .= "<a";
+        $this->render .= "<a ";
 
         if(count($this->classes) > 0) $this->render .= ' ' . $this->renderClasses();
 

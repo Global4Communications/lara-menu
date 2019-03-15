@@ -4,8 +4,7 @@
     "version": "1.0.0",
     "type": "library",
     "require": {
-        "laravel/laravel": ">=5.5.0",
-        "santigarcor/laratrust": "~5.0.*"
+        "santigarcor/laratrust": "~5.0.0"
     },
     "license": "MIT",
     "authors": [

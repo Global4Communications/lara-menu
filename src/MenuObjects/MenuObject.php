@@ -67,7 +67,7 @@ abstract class MenuObject
 
     protected function shouldRender()
     {
-        
+
     }
 
     /**

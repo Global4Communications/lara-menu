@@ -11,7 +11,9 @@ class LaraMenuServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'laramenu');
 
+        $this->loadRoutesFrom(__DIR__ . '/../Http/Routes');
 
     }
 
