@@ -1,6 +1,6 @@
 <?php
 
-namespace Rinjax\LaraMenu\Managers;
+namespace Global4Communications\LaraMenu\Managers;
 
 class MenuRenderManager
 {

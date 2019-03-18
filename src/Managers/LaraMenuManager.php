@@ -1,9 +1,11 @@
 <?php
 
-namespace Rinjax\LaraMenu\Managers;
+namespace Global4Communications\LaraMenu\Managers;
 
-use Rinjax\LaraMenu\MenuObjects\DropdownItem;
-use Rinjax\LaraMenu\MenuObjects\LinkItem;
+use Global4Communications\LaraMenu\MenuObjects\DropdownItem;
+use Global4Communications\LaraMenu\MenuObjects\LinkItem;
+use Global4Communications\LaraMenu\MenuObjects\SubDropdownItem;
+use Global4Communications\LaraMenu\Models\CoreMenu;
 
 class LaraMenuManager
 {
@@ -32,8 +34,8 @@ class LaraMenuManager
     protected $Renderer;
 
     /**
-     * The total menu components
-     * @var array 
+     * The total menu components pulled from the database
+     * @var
      */
     protected $menu = [];
 
@@ -52,6 +54,7 @@ class LaraMenuManager
     }
 
     /**
+     * Return the currently set Bootstrap version.
      * @return mixed
      */
     public function getBSVersion()
@@ -73,6 +76,62 @@ class LaraMenuManager
     }
 
     /**
+     * Import the menu from the database
+     * @param $config
+     * @return $this
+     */
+    public function importMenu()
+    {
+        $menu = CoreMenu::where('disabled',0)->orderBy('priority')->get();
+
+        $this->bulidMenuArray($menu);
+
+        return $this;
+    }
+
+    /**
+     * Convert the database collection into package versions objects
+     * @param $menu
+     */
+    protected function bulidMenuArray($menu)
+    {
+        // setup the namespacing attrubutes for ordering
+        foreach ($menu as $m){
+            $m->namespacing();
+            $m->level();
+        }
+
+        foreach ($menu as $item){
+            if($item->level == 1){
+
+                $this->menu[] = $this->createMenuItem($item, $menu);
+            }
+        }
+
+    }
+
+    /**
+     * Switching function to work out which menu item to add.
+     * @param $item
+     * @param $menu
+     * @return DropdownItem|LinkItem|SubDropdownItem
+     */
+    public function createMenuItem($item, $menu)
+    {
+        switch($item->type){
+            case 'link':
+                return $this->createLink($item);
+                break;
+            case 'dropdown':
+                return $this->createDropdown($item, $menu);
+                break;
+            case 'sub-dropdown':
+                return $this->createSubDropdown($item, $menu);
+                break;
+        }
+    }
+
+    /**
      * Add a class to the main part of the menu
      * @param $class
      * @return $this
@@ -86,37 +145,16 @@ class LaraMenuManager
         return $this;
     }
 
-    /**
-     * Import a menu config
-     * @param $config
-     * @return $this
-     */
-    public function importMenu($config)
-    {
-        $menu = config($config);
 
-        foreach($menu as $item){
-            switch ($item['type']){
-                case 'link':
-                    $this->addLink($item);
-                    break;
-                case 'dropdown':
-                    $this->addDropdown($item);
-                    break;
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * Add a link to the menu
      * @param array $data
      * @return $this
      */
-    public function addLink(array $data)
+    public function addLink(CoreMenu $item)
     {
-        $link = $this->createLink($data);
+        $link = $this->createLink($item);
 
         array_push($this->menu, $link);
 
@@ -142,19 +180,12 @@ class LaraMenuManager
      * @param array $data
      * @return LinkItem
      */
-    protected function createLink(array $data)
+    protected function createLink(CoreMenu $item)
     {
-        $link = new LinkItem($data['text'], $data['route']);
+        $link = new LinkItem($item->text, $item->route);
 
-        if(!empty($data['classes'])){
-            array_merge($link->classes, $data['classes']);
-        }
-
-        if(!empty($data['styles'])){
-            array_merge($link->classes, $data['styles']);
-        }
-
-
+        $link->classes = $item->classes();
+        $link->styles = $item->styles();
 
         return $link;
     }
@@ -164,20 +195,43 @@ class LaraMenuManager
      * @param $data
      * @return DropdownItem
      */
-    protected function createDropdown($data)
+    protected function createDropdown(CoreMenu $item, $menu)
     {
-        $drop = new DropdownItem($data['text']);
+        $drop = new DropdownItem($item->text);
 
-        if(!empty($data['classes'])){
-            array_merge($drop->classes, $data['classes']);
+        $drop->classes = $item->classes();
+        $drop->styles = $item->styles();
+
+        $k = $this->getDropdownItems($item, $menu);
+
+
+        foreach ($k as $subitem){
+
+            $drop->list[] = $this->createMenuItem($subitem, $menu);
         }
 
-        if(!empty($data['styles'])){
-            array_merge($drop->classes, $data['styles']);
-        }
+        return $drop;
+    }
 
-        foreach ($data['list'] as $item){
-            array_push($drop->list, $this->createLink($item));
+    /**
+     * Create the subdropdown object to be added, that will represent the menu subdropdown.
+     * @param CoreMenu $item
+     * @param $menu
+     * @return SubDropdownItem
+     */
+    protected function createSubDropdown(CoreMenu $item, $menu)
+    {
+        $drop = new SubDropdownItem($item->text);
+
+        $drop->classes = $item->classes();
+        $drop->styles = $item->styles();
+
+        $k = $this->getDropdownItems($item, $menu);
+
+
+        foreach ($k as $subitem){
+
+            $drop->list[] = $this->createMenuItem($subitem, $menu);
         }
 
         return $drop;
@@ -194,5 +248,41 @@ class LaraMenuManager
                 return $this->Renderer->renderBS3Standard($this->menu, $this->menuClasses);
                 break;
         }
+    }
+
+
+
+    /**
+     * Search through the database collection for the dropdown's sub components.
+     * @param CoreMenu $dropdown
+     * @param $menu
+     * @return array
+     */
+    protected function getDropdownItems(CoreMenu $dropdown, $menu)
+    {
+        $array = [];
+
+        $nextLevelItems = $menu->filter(function($item) use ($dropdown, $menu){
+            return ($item->level == ($dropdown->level + 1));
+        });
+
+        foreach($nextLevelItems as $item){
+            $i = 0;
+            $add = false;
+
+            while($i < $dropdown->level){
+                if($item->namespacing[$i]  == $dropdown->namespacing[$i]){
+                    $add = true;
+                    $i++;
+                }else{
+                    $add = false;
+                    break;
+                }
+            }
+
+            if($add) array_push($array, $item);
+        }
+
+        return $array;
     }
 }

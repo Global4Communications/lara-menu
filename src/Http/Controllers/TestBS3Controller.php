@@ -1,9 +1,9 @@
 <?php
 
-namespace Rinjax\LaraMenu\Http\Controllers;
+namespace Global4Communications\LaraMenu\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Rinjax\LaraMenu\Managers\LaraMenuManager;
+use Global4Communications\LaraMenu\Managers\LaraMenuManager;
 
 class TestBS3Controller extends Controller
 {
@@ -15,6 +15,10 @@ class TestBS3Controller extends Controller
     }
     public function standard()
     {
+        $m = $this->MenuManager->importMenu()
+            ->addMenuClass('nav-pills')
+            ->render();
 
+        return view('laramenu::BS3.standard')->with('menu', $m);
     }
 }

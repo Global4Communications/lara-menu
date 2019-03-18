@@ -1,4 +1,4 @@
-<?php namespace Rinjax\LaraMenu\Providers;
+<?php namespace Global4Communications\LaraMenu\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,9 @@ class LaraMenuServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'laramenu');
 
-        $this->loadRoutesFrom(__DIR__ . '/../Http/Routes');
+        $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/views.php');
+
+        $this->loadMigrationsFrom(__DIR__ . '/../Migrations');
 
     }
 

@@ -1,5 +1,5 @@
 {
-    "name": "rinjax/lara-menu",
+    "name": "Global4Communications/lara-menu",
     "description": "builds bootstrap nav links for menus, from config arrays - so easy to include package menus",
     "version": "1.0.0",
     "type": "library",
@@ -17,13 +17,13 @@
 
     "autoload": {
         "psr-4": {
-            "Rinjax\\LaraMenu\\": "src/"
+            "Global4Communications\\LaraMenu\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Rinjax\\LaraMenu\\Providers\\LaraMenuServiceProvider"
+                "Global4Communications\\LaraMenu\\Providers\\LaraMenuServiceProvider"
             ]
         }
     }

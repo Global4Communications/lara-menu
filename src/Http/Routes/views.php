@@ -1,7 +1,7 @@
 <?php
 
 Route::prefix('laramenu-test/bootstrap3')->middleware(['web'])
-    ->namespace('\Global4Communications\Residential\Signup\Http\Controllers')
+    ->namespace('\Global4Communications\LaraMenu\Http\Controllers')
     ->name('laramenu.bs4.')
     ->group(function(){
 

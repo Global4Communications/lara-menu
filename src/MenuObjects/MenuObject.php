@@ -1,6 +1,6 @@
 <?php
 
-namespace Rinjax\LaraMenu\MenuObjects;
+namespace Global4Communications\LaraMenu\MenuObjects;
 
 abstract class MenuObject
 {
@@ -39,7 +39,7 @@ abstract class MenuObject
      * Pipe separated string.
      * @var array
      */
-    public $deny_permission = null;
+    public $deny_permissions = null;
 
     /**
      * Laratrust roles that's denied form this menu item. This will override any allow permissions or roles.
@@ -60,14 +60,27 @@ abstract class MenuObject
      */
     public function render($BSVersion = 3)
     {
-        if($BSVersion == 3) return $this->renderBS3();
+        if($this->shouldRender()){
+            if($BSVersion == 3) return $this->renderBS3();
 
-        if($BSVersion == 4) return $this->renderBS4();
+            if($BSVersion == 4) return $this->renderBS4();
+        }else{
+            return null;
+        }
+
     }
 
     protected function shouldRender()
     {
+        if($this->allow_roles == null &&
+            $this->allow_permissions == null &&
+            $this->deny_roles == null &&
+            $this->deny_permissions == null
+        ) return true;
 
+        if(Laratrust::ability($this->deny_roles, $this->deny_permissions)) return false;
+
+        if(Laratrust::ability($this->allow_roles, $this->allow_permissions)) return true;
     }
 
     /**

@@ -2,13 +2,13 @@
 
 namespace Global4Communications\LaraMenu\MenuObjects;
 
-class DropdownItem extends MenuObject
+class SubDropdownItem extends MenuObject
 {
     /**
      * Type of this menu object
      * @var string
      */
-    protected $type = 'dropdown';
+    protected $type = 'sub-dropdown';
 
     /**
      * Text to display in the browser view
@@ -36,8 +36,8 @@ class DropdownItem extends MenuObject
     {
         // todo: add the classes and styles - where is best to put them?
 
-        $this->render .= "<li role='presentation' class='dropdown'>";
-        $this->render .= '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
+        $this->render .= "<li role='presentation' class='dropdown-submenu'>";
+        $this->render .= '<a class="" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
         $this->render .= $this->displayText . '<span class="caret"></span></a><ul class="dropdown-menu">';
 
         foreach($this->list as $item){

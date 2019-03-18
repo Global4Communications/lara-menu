@@ -1,3 +1,4 @@
+@extends('laramenu::layouts.html')
 
 @section('title')Bootstrap 4 Test @endsection
 
