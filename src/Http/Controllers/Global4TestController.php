@@ -13,6 +13,11 @@ class Global4TestController extends Controller
     {
         $this->MenuManager = new LaraMenuManager(3);
     }
+
+    /**
+     * Main function to test the Global4 CRM
+     * @return mixed
+     */
     public function crm()
     {
         $m = $this->MenuManager->importMenu()

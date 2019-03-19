@@ -70,6 +70,10 @@ abstract class MenuObject
 
     }
 
+    /**
+     * Check to see if the user is auth to view this menu item.
+     * @return bool
+     */
     protected function shouldRender()
     {
         if($this->allow_roles == null &&

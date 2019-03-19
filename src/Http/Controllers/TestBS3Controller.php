@@ -13,6 +13,11 @@ class TestBS3Controller extends Controller
     {
         $this->MenuManager = new LaraMenuManager(3);
     }
+
+    /**
+     * Generic test of menu
+     * @return mixed
+     */
     public function standard()
     {
         $m = $this->MenuManager->importMenu()

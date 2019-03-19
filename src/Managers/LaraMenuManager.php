@@ -292,8 +292,6 @@ class LaraMenuManager
         }
     }
 
-
-
     /**
      * Search through the database collection for the dropdown's sub components.
      * @param CoreMenu $dropdown

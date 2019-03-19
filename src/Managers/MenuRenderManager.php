@@ -28,21 +28,6 @@ class MenuRenderManager
 
     }
 
-    public function renderBS3CrmMain($menu, $classes)
-    {
-        $this->render .= "<nav id='navBar' " . $this->renderClasses($classes) . '>';
-        $this->render .= '<div class="container-fluid" style="padding-left: 2rem; padding-right: 4rem">';
-
-        foreach($menu as $item){
-            $this->render .= $item->render(3);
-        }
-
-        $this->render .= '</div></nav>';
-
-        return $this->render;
-
-    }
-
     /**
      * Render the classes array in to HTML string
      * @param $classes
