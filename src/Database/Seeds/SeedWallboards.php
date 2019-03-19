@@ -1,9 +1,13 @@
 <?php
 
+namespace Global4Communications\LaraMenu\Database\Seeds;
+
 use Illuminate\Database\Seeder;
 
-class SeedStatistics extends Seeder
+class SeedWallboards extends Seeder
 {
+    use \Global4Communications\LaraMenu\Traits\Functions;
+
     /**
      * Run the database seeds.
      *
@@ -29,14 +33,14 @@ class SeedStatistics extends Seeder
                 'namespace' => 'wallboard.queue-overview',
                 'type' => 'link',
                 'text' => 'Call Queue Overview',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/queue-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/queue-overview'),
                 'priority' => 2,
             ],
             [
                 'namespace' => 'wallboard.queue-overview-compact',
                 'type' => 'link',
                 'text' => 'Call Queue Overview Compact',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/queue-overview-compact',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/queue-overview-compact'),
                 'priority' => 3,
             ],
             [
@@ -54,21 +58,21 @@ class SeedStatistics extends Seeder
                 'namespace' => 'wallboard.department-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/g4-accounts',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/g4-accounts'),
                 'priority' => 6,
             ],
             [
                 'namespace' => 'wallboard.department-ht-credit',
                 'type' => 'link',
                 'text' => 'HT Credit Control',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/ht-creditcontrol',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/ht-creditcontrol'),
                 'priority' => 7,
             ],
             [
                 'namespace' => 'wallboard.department-g4-credit',
                 'type' => 'link',
                 'text' => 'G4 Credit Control',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/g4-creditcontrol',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/g4-creditcontrol'),
                 'priority' => 8,
             ],
             [
@@ -86,70 +90,70 @@ class SeedStatistics extends Seeder
                 'namespace' => 'wallboard.agent-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/g4-accounts/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/g4-accounts/agent-overview'),
                 'priority' => 11,
             ],
             [
                 'namespace' => 'wallboard.agent-htcredit',
                 'type' => 'link',
                 'text' => 'HT Credit Control',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/ht-creditcontrol/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/ht-creditcontrol/agent-overview'),
                 'priority' => 12,
             ],
             [
                 'namespace' => 'wallboard.agent-g4credit',
                 'type' => 'link',
                 'text' => 'G4 Credit Control',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/g4-creditcontrol/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/g4-creditcontrol/agent-overview'),
                 'priority' => 13,
             ],
             [
                 'namespace' => 'wallboard.agent-finance',
                 'type' => 'link',
                 'text' => 'All Finance',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/finance/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/finance/agent-overview'),
                 'priority' => 14,
             ],
             [
                 'namespace' => 'wallboard.agent-g4-sales',
                 'type' => 'link',
                 'text' => 'G4 Sales',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/g4-sales/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/g4-sales/agent-overview'),
                 'priority' => 15,
             ],
             [
                 'namespace' => 'wallboard.agent-ht-sales',
                 'type' => 'link',
                 'text' => 'HT Sales',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/ht-sales/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/ht-sales/agent-overview'),
                 'priority' => 16,
             ],
             [
                 'namespace' => 'wallboard.agent-ht-care',
                 'type' => 'link',
                 'text' => 'HT Customer Care',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/ht-customercare/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/ht-customercare/agent-overview'),
                 'priority' => 17,
             ],
             [
                 'namespace' => 'wallboard.agent-residential-provisions',
                 'type' => 'link',
                 'text' => 'Residential Provisions',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/residential-provisions/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/residential-provisions/agent-overview'),
                 'priority' => 18,
             ],
             [
                 'namespace' => 'wallboard.agent-business-provisions',
                 'type' => 'link',
                 'text' => 'Business Provisions',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/business-provisions/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/business-provisions/agent-overview'),
                 'priority' => 19,
             ],
             [
                 'namespace' => 'wallboard.agent-business-technical',
                 'type' => 'link',
                 'text' => 'Business Technical',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/business-technical/agent-overview',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/business-technical/agent-overview'),
                 'priority' => 20,
             ],
             [
@@ -167,7 +171,7 @@ class SeedStatistics extends Seeder
                 'namespace' => 'wallboard.global4-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
-                'route' => 'https://crm.global4.co.uk/cdr/wallboard/accounts-slider',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/accounts-slider'),
                 'priority' => 22,
             ],
             [
@@ -180,6 +184,20 @@ class SeedStatistics extends Seeder
                 'type' => 'header',
                 'text' => 'Hometelecom Views',
                 'priority' => 24,
+            ],
+            [
+                'namespace' => 'wallboard.hometelecom-sales',
+                'type' => 'link',
+                'text' => 'HT Sales',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/hometelecom-slider'),
+                'priority' => 25,
+            ],
+            [
+                'namespace' => 'wallboard.hometelecom-tili',
+                'type' => 'link',
+                'text' => 'Tili Team',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/tili-slider'),
+                'priority' => 22,
             ],
         ]);
     }

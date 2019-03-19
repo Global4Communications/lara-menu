@@ -1,9 +1,13 @@
 <?php
 
+namespace Global4Communications\LaraMenu\Database\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class SeedWebsite extends Seeder
 {
+    use \Global4Communications\LaraMenu\Traits\Functions;
+
     /**
      * Run the database seeds.
      *
@@ -23,42 +27,42 @@ class SeedWebsite extends Seeder
                 'namespace' => 'website.home-page',
                 'type' => 'link',
                 'text' => 'Home Page',
-                'route' => 'https://www.global4.co.uk',
+                'route' => $this->urlgen('https://www.global4.co.uk'),
                 'priority' => 1,
             ],
             [
                 'namespace' => 'website.blog',
                 'type' => 'link',
                 'text' => 'Blog / News',
-                'route' => 'https://crm.global4.co.uk/cms/blog',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cms/blog'),
                 'priority' => 2,
             ],
             [
                 'namespace' => 'website.case-studies',
                 'type' => 'link',
                 'text' => 'Case Studies',
-                'route' => 'https://crm.global4.co.uk/cms/case-studies',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cms/case-studies'),
                 'priority' => 3,
             ],
             [
                 'namespace' => 'website.testimonials',
                 'type' => 'link',
                 'text' => 'Testimonials',
-                'route' => 'https://crm.global4.co.uk/cms/testimonials',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cms/testimonials'),
                 'priority' => 4,
             ],
             [
                 'namespace' => 'website.careers',
                 'type' => 'link',
                 'text' => 'Careers',
-                'route' => 'https://crm.global4.co.uk/cms/careers',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cms/careers'),
                 'priority' => 5,
             ],
             [
                 'namespace' => 'website.jargon',
                 'type' => 'link',
                 'text' => 'Jargon Buster',
-                'route' => 'https://crm.global4.co.uk/cms/jargons',
+                'route' => $this->urlgen('https://crm.global4.co.uk/cms/jargons'),
                 'priority' => 6,
             ],
         ]);

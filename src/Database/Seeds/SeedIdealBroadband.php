@@ -1,9 +1,13 @@
 <?php
 
+namespace Global4Communications\LaraMenu\Database\Seeds;
+
 use Illuminate\Database\Seeder;
 
 class SeedIdealBroadband extends Seeder
 {
+    use \Global4Communications\LaraMenu\Traits\Functions;
+
     /**
      * Run the database seeds.
      *
@@ -23,14 +27,14 @@ class SeedIdealBroadband extends Seeder
                 'namespace' => 'idealbroadband.signup-form',
                 'type' => 'link',
                 'text' => 'Sign Up Form',
-                'route' => 'https://crm.global4.co.uk/admin/idealbroadband/signup/clear',
+                'route' => $this->urlgen('https://crm.global4.co.uk/admin/idealbroadband/signup/clear'),
                 'priority' => 1,
             ],
             [
                 'namespace' => 'idealbroadband.signuped-customers',
                 'type' => 'link',
                 'text' => 'Signed Up Customers',
-                'route' => 'https://crm.global4.co.uk/admin/idealbroadband/customers',
+                'route' => $this->urlgen('https://crm.global4.co.uk/admin/idealbroadband/customers'),
                 'priority' => 2,
             ],
         ]);
