@@ -77,7 +77,7 @@ class LinkItem extends MenuObject
             return $this->route;
 
         }else{
-            return route($this->route);
+            return url($this->route);
         }
     }
 

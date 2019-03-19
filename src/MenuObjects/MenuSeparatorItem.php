@@ -2,7 +2,7 @@
 
 namespace Global4Communications\LaraMenu\MenuObjects;
 
-class MenuHeaderItem extends MenuObject
+class MenuSeparatorItem extends MenuObject
 {
     /**
      * Type of this menu object

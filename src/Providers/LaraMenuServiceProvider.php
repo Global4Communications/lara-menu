@@ -15,7 +15,7 @@ class LaraMenuServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/views.php');
 
-        $this->loadMigrationsFrom(__DIR__ . '/../Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
     }
 
