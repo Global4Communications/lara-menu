@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedDev extends Seeder
@@ -15,7 +16,14 @@ class SeedDev extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'dev',
                 'type' => 'dropdown',
@@ -152,7 +160,6 @@ class SeedDev extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/elevate/rental-products'),
                 'priority' => 1,
             ],
-
-        ]);
+        ];
     }
 }

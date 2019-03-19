@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedWallboards extends Seeder
@@ -15,7 +16,14 @@ class SeedWallboards extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'wallboard',
                 'type' => 'dropdown',
@@ -199,6 +207,6 @@ class SeedWallboards extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/cdr/wallboard/tili-slider'),
                 'priority' => 22,
             ],
-        ]);
+        ];
     }
 }

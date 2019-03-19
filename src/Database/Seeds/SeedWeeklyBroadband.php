@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedWeeklyBroadband extends Seeder
@@ -15,7 +16,14 @@ class SeedWeeklyBroadband extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'weeklybroadband',
                 'type' => 'dropdown',
@@ -128,6 +136,6 @@ class SeedWeeklyBroadband extends Seeder
                 'route' => $this->urlgen('https://www.weeklybroadband/clear-and-signup'),
                 'priority' => 15,
             ],
-        ]);
+        ];
     }
 }

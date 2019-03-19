@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedAffinity extends Seeder
@@ -14,7 +15,14 @@ class SeedAffinity extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'affinity',
                 'type' => 'dropdown',
@@ -78,6 +86,6 @@ class SeedAffinity extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/affinity/cdr/index'),
                 'priority' => 8,
             ]
-        ]);
+        ];
     }
 }

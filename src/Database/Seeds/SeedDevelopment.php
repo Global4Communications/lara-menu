@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedDevelopment extends Seeder
@@ -15,7 +16,15 @@ class SeedDevelopment extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item)
+        {
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'development',
                 'type' => 'dropdown',
@@ -98,6 +107,6 @@ class SeedDevelopment extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/dev/task/category/uncategorized'),
                 'priority' => 10,
             ],
-        ]);
+        ];
     }
 }

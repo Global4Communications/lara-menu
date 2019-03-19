@@ -4,6 +4,8 @@ namespace Global4Communications\LaraMenu\Managers;
 
 use Global4Communications\LaraMenu\MenuObjects\DropdownItem;
 use Global4Communications\LaraMenu\MenuObjects\LinkItem;
+use Global4Communications\LaraMenu\MenuObjects\MenuHeaderItem;
+use Global4Communications\LaraMenu\MenuObjects\MenuSeparatorItem;
 use Global4Communications\LaraMenu\MenuObjects\SubDropdownItem;
 use Global4Communications\LaraMenu\Models\CoreMenu;
 
@@ -43,7 +45,7 @@ class LaraMenuManager
      * Class to apply to the main part of the menu (top level ul, div, nav)
      * @var array
      */
-    protected $menuClasses = ['nav'];
+    protected $menuClasses = [];
 
 
     public function __construct($BSVersion = 3)
@@ -128,6 +130,12 @@ class LaraMenuManager
             case 'sub-dropdown':
                 return $this->createSubDropdown($item, $menu);
                 break;
+            case 'separator':
+                return $this->createSeparator($item);
+                break;
+            case 'header':
+                return $this->createHeader($item);
+                break;
         }
     }
 
@@ -140,7 +148,7 @@ class LaraMenuManager
     {
         if(is_string($class)) array_push($this->menuClasses, $class);
 
-        if(is_array($class)) array_merge($this->menuClasses, $class);
+        if(is_array($class)) $this->menuClasses = array_merge($this->menuClasses, $class);
 
         return $this;
     }
@@ -238,6 +246,37 @@ class LaraMenuManager
     }
 
     /**
+     * Create a Menu heading object to be added, that will represent a sub heading on a dropdown.
+     * @param CoreMenu $item
+     * @return MenuHeaderItem
+     */
+    protected function createHeader(CoreMenu $item)
+    {
+        $header = new MenuHeaderItem($item->text);
+
+        $header->classes = $item->classes();
+        $header->styles = $item->styles();
+        
+        return $header;
+        
+    }
+
+    /**
+     * Create a Separator object to be added, that will represent a menu separator.
+     * @param CoreMenu $item
+     * @return MenuHeaderItem
+     */
+    protected function createSeparator(CoreMenu $item)
+    {
+        $separator = new MenuSeparatorItem();
+
+        $separator->classes = $item->classes();
+        $separator->styles = $item->styles();
+
+        return $separator;
+    }
+
+    /**
      * Use the RenderManager to render the final menu HTML
      * @return string
      */
@@ -246,6 +285,9 @@ class LaraMenuManager
         switch([$this->BSVersion, $this->menuType]){
             case [3, 'standard']:
                 return $this->Renderer->renderBS3Standard($this->menu, $this->menuClasses);
+                break;
+            case [3, 'crm-main']:
+                return $this->Renderer->renderBS3CrmMain($this->menu, $this->menuClasses);
                 break;
         }
     }

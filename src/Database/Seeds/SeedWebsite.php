@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedWebsite extends Seeder
@@ -15,7 +16,14 @@ class SeedWebsite extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'website',
                 'type' => 'dropdown',
@@ -65,6 +73,6 @@ class SeedWebsite extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/cms/jargons'),
                 'priority' => 6,
             ],
-        ]);
+        ];
     }
 }

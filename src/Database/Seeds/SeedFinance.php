@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedFinance extends Seeder
@@ -14,7 +15,14 @@ class SeedFinance extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'finance',
                 'type' => 'dropdown',
@@ -57,6 +65,6 @@ class SeedFinance extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/admin/payment/payments-made'),
                 'priority' => 5,
             ],
-        ]);
+        ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedUsers extends Seeder
@@ -14,7 +15,14 @@ class SeedUsers extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'users',
                 'type' => 'dropdown',
@@ -36,6 +44,6 @@ class SeedUsers extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/admin/roles'),
                 'priority' => 1,
             ]
-        ]);
+        ];
     }
 }

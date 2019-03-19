@@ -2,6 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Database\Seeds;
 
+use Global4Communications\LaraMenu\Models\CoreMenu;
 use Illuminate\Database\Seeder;
 
 class SeedCallReports extends Seeder
@@ -15,7 +16,14 @@ class SeedCallReports extends Seeder
      */
     public function run()
     {
-        DB::table('core_menus')->insert([
+        foreach ($this->data() as $item){
+            CoreMenu::create($item);
+        }
+    }
+
+    private function data()
+    {
+        return [
             [
                 'namespace' => 'call-reports',
                 'type' => 'dropdown',
@@ -56,6 +64,6 @@ class SeedCallReports extends Seeder
                 'route' => $this->urlgen('https://crm.global4.co.uk/cdr/report/aged-debts'),
                 'priority' => 5,
             ]
-        ]);
+        ];
     }
 }

@@ -38,7 +38,7 @@ class SubDropdownItem extends MenuObject
 
         $this->render .= "<li role='presentation' class='dropdown-submenu'>";
         $this->render .= '<a class="" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
-        $this->render .= $this->displayText . '<span class="caret"></span></a><ul class="dropdown-menu">';
+        $this->render .= $this->displayText . '</a><ul class="dropdown-menu">';
 
         foreach($this->list as $item){
             $this->render .= $item->render(3);

@@ -22,6 +22,8 @@ class DropdownItem extends MenuObject
      */
     public $list = [];
 
+    public $classes = ['nav','navbar-nav','navbar-right'];
+
 
     public function __construct($text)
     {
