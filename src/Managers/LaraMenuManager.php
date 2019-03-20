@@ -31,9 +31,15 @@ class LaraMenuManager
 
     /**
      * The manager for rendering the menu
-     * @var MenuRenderManager
+     * @var LaraMenuRenderManager
      */
     protected $Renderer;
+
+    /**
+     * The manager for caching the menu
+     * @var LaraMenuCacheManager
+     */
+    protected $Cacher;
 
     /**
      * The total menu components pulled from the database
@@ -52,7 +58,9 @@ class LaraMenuManager
     {
         $this->BSVersion = $BSVersion;
 
-        $this->Renderer = new MenuRenderManager();
+        $this->Renderer = new LaraMenuRenderManager();
+
+        $this->Cacher = new LaraMenuCacheManager();
     }
 
     /**
@@ -77,12 +85,40 @@ class LaraMenuManager
         }
     }
 
+    public function loadMenu()
+    {
+        if($this->Cacher->alreadyCached()){
+            $this->menu = $this->Cacher->loadCache();
+        }else{
+            $this->importMenu();
+            $this->Cacher->cacheMenu($this->menu);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the RenderManager to render the final menu HTML
+     * @return string
+     */
+    public function render()
+    {
+        switch([$this->BSVersion, $this->menuType]){
+            case [3, 'standard']:
+                return $this->Renderer->renderBS3Standard($this->menu, $this->menuClasses);
+                break;
+            case [3, 'crm-main']:
+                return $this->Renderer->renderBS3CrmMain($this->menu, $this->menuClasses);
+                break;
+        }
+    }
+
     /**
      * Import the menu from the database
      * @param $config
      * @return $this
      */
-    public function importMenu()
+    protected function importMenu()
     {
         $menu = CoreMenu::where('disabled',0)->orderBy('priority')->get();
 
@@ -118,7 +154,7 @@ class LaraMenuManager
      * @param $menu
      * @return DropdownItem|LinkItem|SubDropdownItem
      */
-    public function createMenuItem($item, $menu)
+    protected function createMenuItem($item, $menu)
     {
         switch($item->type){
             case 'link':
@@ -160,7 +196,7 @@ class LaraMenuManager
      * @param array $data
      * @return $this
      */
-    public function addLink(CoreMenu $item)
+    protected function addLink(CoreMenu $item)
     {
         $link = $this->createLink($item);
 
@@ -174,7 +210,7 @@ class LaraMenuManager
      * @param array $data
      * @return $this
      */
-    public function addDropdown(array $data)
+    protected function addDropdown(array $data)
     {
         $drop = $this->createDropdown($data);
 
@@ -296,21 +332,7 @@ class LaraMenuManager
         return $separator;
     }
 
-    /**
-     * Use the RenderManager to render the final menu HTML
-     * @return string
-     */
-    public function render()
-    {
-        switch([$this->BSVersion, $this->menuType]){
-            case [3, 'standard']:
-                return $this->Renderer->renderBS3Standard($this->menu, $this->menuClasses);
-                break;
-            case [3, 'crm-main']:
-                return $this->Renderer->renderBS3CrmMain($this->menu, $this->menuClasses);
-                break;
-        }
-    }
+
 
     /**
      * Search through the database collection for the dropdown's sub components.

@@ -2,7 +2,7 @@
 
 namespace Global4Communications\LaraMenu\Managers;
 
-class MenuRenderManager
+class LaraMenuRenderManager
 {
 
     protected $render = '';

@@ -20,9 +20,8 @@ class TestBS3Controller extends Controller
      */
     public function standard()
     {
-        $m = $this->MenuManager->importMenu()
-            ->addMenuClass('nav-pills')
-            ->render();
+        $m = $this->MenuManager->importMenu()->loadMenu();
+
 
         return view('laramenu::BS3.standard')->with('menu', $m);
     }

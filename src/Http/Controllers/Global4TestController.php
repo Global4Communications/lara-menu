@@ -20,7 +20,7 @@ class Global4TestController extends Controller
      */
     public function crm()
     {
-        $m = $this->MenuManager->importMenu()
+        $m = $this->MenuManager->loadMenu()
             ->addMenuClass(['nav', 'navbar-nav', 'navbar-right'])
             ->render();
 
