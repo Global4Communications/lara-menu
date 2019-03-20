@@ -76,15 +76,16 @@ abstract class MenuObject
      */
     protected function shouldRender()
     {
+
         if($this->allow_roles == null &&
             $this->allow_permissions == null &&
             $this->deny_roles == null &&
             $this->deny_permissions == null
         ) return true;
 
-        if(Laratrust::ability($this->deny_roles, $this->deny_permissions)) return false;
+        if(\Laratrust::ability($this->deny_roles, $this->deny_permissions)) return false;
 
-        if(Laratrust::ability($this->allow_roles, $this->allow_permissions)) return true;
+        if(\Laratrust::ability($this->allow_roles, $this->allow_permissions)) return true;
     }
 
     /**

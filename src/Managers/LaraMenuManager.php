@@ -194,6 +194,10 @@ class LaraMenuManager
 
         $link->classes = $item->classes();
         $link->styles = $item->styles();
+        $link->allow_permissions = $item->allowPermissions();
+        $link->allow_roles = $item->allowRoles();
+        $link->deny_permissions = $item->denyPermissions();
+        $link->deny_roles = $item->denyRoles();
 
         return $link;
     }
@@ -209,6 +213,10 @@ class LaraMenuManager
 
         $drop->classes = $item->classes();
         $drop->styles = $item->styles();
+        $drop->allow_permissions = $item->allowPermissions();
+        $drop->allow_roles = $item->allowRoles();
+        $drop->deny_permissions = $item->denyPermissions();
+        $drop->deny_roles = $item->denyRoles();
 
         $k = $this->getDropdownItems($item, $menu);
 
@@ -233,6 +241,10 @@ class LaraMenuManager
 
         $drop->classes = $item->classes();
         $drop->styles = $item->styles();
+        $drop->allow_permissions = $item->allowPermissions();
+        $drop->allow_roles = $item->allowRoles();
+        $drop->deny_permissions = $item->denyPermissions();
+        $drop->deny_roles = $item->denyRoles();
 
         $k = $this->getDropdownItems($item, $menu);
 
@@ -256,6 +268,10 @@ class LaraMenuManager
 
         $header->classes = $item->classes();
         $header->styles = $item->styles();
+        $header->allow_permissions = $item->allowPermissions();
+        $header->allow_roles = $item->allowRoles();
+        $header->deny_permissions = $item->denyPermissions();
+        $header->deny_roles = $item->denyRoles();
         
         return $header;
         
@@ -272,6 +288,10 @@ class LaraMenuManager
 
         $separator->classes = $item->classes();
         $separator->styles = $item->styles();
+        $separator->allow_permissions = $item->allowPermissions();
+        $separator->allow_roles = $item->allowRoles();
+        $separator->deny_permissions = $item->denyPermissions();
+        $separator->deny_roles = $item->denyRoles();
 
         return $separator;
     }

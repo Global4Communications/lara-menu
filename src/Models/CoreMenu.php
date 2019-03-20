@@ -30,7 +30,7 @@ class CoreMenu extends Model
         $classArray = [];
 
         if(isset($this->classes)){
-            array_merge($classArray,explode('|', $this->classes));
+            $classArray = array_merge($classArray,explode('|', $this->classes));
         }
         return $classArray;
     }
@@ -51,5 +51,25 @@ class CoreMenu extends Model
         }
 
         return $stylesArray;
+    }
+
+    public function allowPermissions()
+    {
+        return $this->allow_permissions;
+    }
+
+    public function allowRoles()
+    {
+        return $this->allow_roles;
+    }
+
+    public function denyPermissions()
+    {
+        return $this->deny_permissions;
+    }
+
+    public function denyRoles()
+    {
+        return $this->deny_roles;
     }
 }
