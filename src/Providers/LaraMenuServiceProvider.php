@@ -1,5 +1,6 @@
 <?php namespace Global4Communications\LaraMenu\Providers;
 
+use Global4Communications\LaraMenu\Managers\LaraMenuManager;
 use Illuminate\Support\ServiceProvider;
 
 class LaraMenuServiceProvider extends ServiceProvider
@@ -26,6 +27,12 @@ class LaraMenuServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind('LaraMenuManager3', function (){
+            return new LaraMenuManager(3);
+        });
 
+        $this->app->bind('LaraMenuManager4', function (){
+            return new LaraMenuManager(4);
+        });
     }
 }
