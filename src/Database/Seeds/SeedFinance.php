@@ -24,6 +24,7 @@ class SeedFinance extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'finance',
                 'type' => 'dropdown',
                 'text' => 'Finance',
@@ -31,6 +32,7 @@ class SeedFinance extends Seeder
                 'allow_permissions' => 'view-finance-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'finance.import-accounts',
                 'type' => 'link',
                 'text' => 'Import Accounts Board Data',
@@ -38,6 +40,7 @@ class SeedFinance extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'finance.billing-reconcile',
                 'type' => 'link',
                 'text' => 'Billing Reconcile',
@@ -45,6 +48,7 @@ class SeedFinance extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'finance.payment-portal',
                 'type' => 'link',
                 'text' => 'Payment Portal',
@@ -52,6 +56,7 @@ class SeedFinance extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'finance.outstanding-balance',
                 'type' => 'link',
                 'text' => 'Oustanding Balances',
@@ -59,6 +64,7 @@ class SeedFinance extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'finance.payment-made',
                 'type' => 'link',
                 'text' => 'Payments Made',

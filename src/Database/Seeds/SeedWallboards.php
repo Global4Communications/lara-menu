@@ -25,6 +25,7 @@ class SeedWallboards extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard',
                 'type' => 'dropdown',
                 'text' => 'Wallboards',
@@ -32,12 +33,14 @@ class SeedWallboards extends Seeder
                 'allow_permissions' => 'view-wallboards-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.heading1',
                 'type' => 'header',
                 'text' => 'Queues Overview',
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.queue-overview',
                 'type' => 'link',
                 'text' => 'Call Queue Overview',
@@ -45,6 +48,7 @@ class SeedWallboards extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.queue-overview-compact',
                 'type' => 'link',
                 'text' => 'Call Queue Overview Compact',
@@ -52,17 +56,20 @@ class SeedWallboards extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.separator1',
                 'type' => 'separator',
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.heading2',
                 'type' => 'header',
                 'text' => 'Department Overview',
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.department-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
@@ -70,6 +77,7 @@ class SeedWallboards extends Seeder
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.department-ht-credit',
                 'type' => 'link',
                 'text' => 'HT Credit Control',
@@ -77,6 +85,7 @@ class SeedWallboards extends Seeder
                 'priority' => 7,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.department-g4-credit',
                 'type' => 'link',
                 'text' => 'G4 Credit Control',
@@ -84,17 +93,20 @@ class SeedWallboards extends Seeder
                 'priority' => 8,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.separator2',
                 'type' => 'separator',
                 'priority' => 9,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.heading3',
                 'type' => 'header',
                 'text' => 'Department Agents Overview',
                 'priority' => 10,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
@@ -102,6 +114,7 @@ class SeedWallboards extends Seeder
                 'priority' => 11,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-htcredit',
                 'type' => 'link',
                 'text' => 'HT Credit Control',
@@ -109,6 +122,7 @@ class SeedWallboards extends Seeder
                 'priority' => 12,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-g4credit',
                 'type' => 'link',
                 'text' => 'G4 Credit Control',
@@ -116,6 +130,7 @@ class SeedWallboards extends Seeder
                 'priority' => 13,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-finance',
                 'type' => 'link',
                 'text' => 'All Finance',
@@ -123,6 +138,7 @@ class SeedWallboards extends Seeder
                 'priority' => 14,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-g4-sales',
                 'type' => 'link',
                 'text' => 'G4 Sales',
@@ -130,6 +146,7 @@ class SeedWallboards extends Seeder
                 'priority' => 15,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-ht-sales',
                 'type' => 'link',
                 'text' => 'HT Sales',
@@ -137,6 +154,7 @@ class SeedWallboards extends Seeder
                 'priority' => 16,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-ht-care',
                 'type' => 'link',
                 'text' => 'HT Customer Care',
@@ -144,6 +162,7 @@ class SeedWallboards extends Seeder
                 'priority' => 17,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-residential-provisions',
                 'type' => 'link',
                 'text' => 'Residential Provisions',
@@ -151,6 +170,7 @@ class SeedWallboards extends Seeder
                 'priority' => 18,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-business-provisions',
                 'type' => 'link',
                 'text' => 'Business Provisions',
@@ -158,6 +178,7 @@ class SeedWallboards extends Seeder
                 'priority' => 19,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.agent-business-technical',
                 'type' => 'link',
                 'text' => 'Business Technical',
@@ -165,17 +186,20 @@ class SeedWallboards extends Seeder
                 'priority' => 20,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.separator3',
                 'type' => 'separator',
                 'priority' => 21,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.heading4',
                 'type' => 'header',
                 'text' => 'Global4 Views',
                 'priority' => 21,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.global4-accounts',
                 'type' => 'link',
                 'text' => 'Accounts',
@@ -183,17 +207,20 @@ class SeedWallboards extends Seeder
                 'priority' => 22,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.separator4',
                 'type' => 'separator',
                 'priority' => 23,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.heading5',
                 'type' => 'header',
                 'text' => 'Hometelecom Views',
                 'priority' => 24,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.hometelecom-sales',
                 'type' => 'link',
                 'text' => 'HT Sales',
@@ -201,6 +228,7 @@ class SeedWallboards extends Seeder
                 'priority' => 25,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'wallboard.hometelecom-tili',
                 'type' => 'link',
                 'text' => 'Tili Team',

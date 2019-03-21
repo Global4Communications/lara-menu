@@ -25,6 +25,7 @@ class SeedWeeklyBroadband extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband',
                 'type' => 'dropdown',
                 'text' => 'Weekly Broadband',
@@ -32,6 +33,7 @@ class SeedWeeklyBroadband extends Seeder
                 'allow_permissions' => 'view-weekly-broadband-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.signup-form',
                 'type' => 'link',
                 'text' => 'Sign Up Form',
@@ -39,6 +41,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.statistics',
                 'type' => 'link',
                 'text' => 'Statistics',
@@ -46,6 +49,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.statistics-monthly',
                 'type' => 'link',
                 'text' => 'Statistics Monthly',
@@ -53,6 +57,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.customers',
                 'type' => 'link',
                 'text' => 'Signed Up Customers',
@@ -60,6 +65,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.leads',
                 'type' => 'link',
                 'text' => 'Leads',
@@ -67,6 +73,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills',
                 'type' => 'link',
                 'text' => 'Bills',
@@ -74,6 +81,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills-outstanding',
                 'type' => 'link',
                 'text' => 'Bills - Outstanding',
@@ -81,6 +89,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 7,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills-dead',
                 'type' => 'link',
                 'text' => 'Bills - Dead',
@@ -88,6 +97,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 8,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills-to-date',
                 'type' => 'link',
                 'text' => 'Bills To Date',
@@ -95,6 +105,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 9,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.recent-payments',
                 'type' => 'link',
                 'text' => 'Recent Payments',
@@ -102,6 +113,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 10,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills-items',
                 'type' => 'link',
                 'text' => 'Bills Items to Upload',
@@ -109,6 +121,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 11,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.bills-tomorrow',
                 'type' => 'link',
                 'text' => 'Bills Customers Tomorrow',
@@ -116,6 +129,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 12,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.customers-initialised',
                 'type' => 'link',
                 'text' => 'Missed Customers',
@@ -123,6 +137,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 13,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.register-interest',
                 'type' => 'link',
                 'text' => 'Registered Interest',
@@ -130,6 +145,7 @@ class SeedWeeklyBroadband extends Seeder
                 'priority' => 14,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'weeklybroadband.website',
                 'type' => 'link',
                 'text' => 'Website',

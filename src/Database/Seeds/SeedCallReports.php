@@ -25,6 +25,7 @@ class SeedCallReports extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'call-reports',
                 'type' => 'dropdown',
                 'text' => 'Call Reports',
@@ -32,6 +33,7 @@ class SeedCallReports extends Seeder
                 'allow_permissions' => 'view-wallboards-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'call-reports.agent',
                 'type' => 'link',
                 'text' => 'By Agent',
@@ -39,6 +41,7 @@ class SeedCallReports extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'call-reports.department',
                 'type' => 'link',
                 'text' => 'By Department',
@@ -46,11 +49,13 @@ class SeedCallReports extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'call-reports.separator1',
                 'type' => 'separator',
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'call-reports.affinity-calls',
                 'type' => 'link',
                 'text' => 'Affinity Call Report',
@@ -58,6 +63,7 @@ class SeedCallReports extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'call-report.aged-debt',
                 'type' => 'link',
                 'text' => 'Aged Debt Call Report',

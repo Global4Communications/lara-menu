@@ -25,6 +25,7 @@ class SeedWebsite extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'website',
                 'type' => 'dropdown',
                 'text' => 'Website',
@@ -32,6 +33,7 @@ class SeedWebsite extends Seeder
                 'allow_permissions' => 'view-website-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.home-page',
                 'type' => 'link',
                 'text' => 'Home Page',
@@ -39,6 +41,7 @@ class SeedWebsite extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.blog',
                 'type' => 'link',
                 'text' => 'Blog / News',
@@ -46,6 +49,7 @@ class SeedWebsite extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.case-studies',
                 'type' => 'link',
                 'text' => 'Case Studies',
@@ -53,6 +57,7 @@ class SeedWebsite extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.testimonials',
                 'type' => 'link',
                 'text' => 'Testimonials',
@@ -60,6 +65,7 @@ class SeedWebsite extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.careers',
                 'type' => 'link',
                 'text' => 'Careers',
@@ -67,6 +73,7 @@ class SeedWebsite extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'website.jargon',
                 'type' => 'link',
                 'text' => 'Jargon Buster',

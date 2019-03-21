@@ -26,6 +26,7 @@ class SeedDevelopment extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'development',
                 'type' => 'dropdown',
                 'text' => 'Development',
@@ -33,6 +34,7 @@ class SeedDevelopment extends Seeder
                 'allow_roles' => 'dev'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.team-schedule',
                 'type' => 'link',
                 'text' => 'Team Work Schedule',
@@ -40,11 +42,13 @@ class SeedDevelopment extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.separator1',
                 'type' => 'separator',
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.new-requests',
                 'type' => 'link',
                 'text' => 'New Development Requests',
@@ -52,6 +56,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.outstanding-requests',
                 'type' => 'link',
                 'text' => 'Outstanding Development Requests',
@@ -59,6 +64,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.company-crm',
                 'type' => 'link',
                 'text' => 'Company CRM',
@@ -66,6 +72,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.g4-website',
                 'type' => 'link',
                 'text' => 'Global 4 Website',
@@ -73,6 +80,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.weekly-broadband',
                 'type' => 'link',
                 'text' => 'Weekly Broadband',
@@ -80,6 +88,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.sales-crm',
                 'type' => 'link',
                 'text' => 'Sales CRM',
@@ -87,6 +96,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 7,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.ideal-broadband',
                 'type' => 'link',
                 'text' => 'Ideal Broadband',
@@ -94,6 +104,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 8,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.ht-tili',
                 'type' => 'link',
                 'text' => 'Tili Jnr / HT Sales',
@@ -101,6 +112,7 @@ class SeedDevelopment extends Seeder
                 'priority' => 9,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'development.uncategorized',
                 'type' => 'link',
                 'text' => 'Un-Categorized',

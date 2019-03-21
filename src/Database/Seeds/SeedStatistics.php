@@ -25,6 +25,7 @@ class SeedStatistics extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics',
                 'type' => 'dropdown',
                 'text' => 'Statistics',
@@ -32,6 +33,7 @@ class SeedStatistics extends Seeder
                 'allow_permissions' => 'view-statistics-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.affinity',
                 'type' => 'link',
                 'text' => 'Affinity',
@@ -39,6 +41,7 @@ class SeedStatistics extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.hometelecom-affinity',
                 'type' => 'link',
                 'text' => 'Home Telecom Affinity Overview',
@@ -46,6 +49,7 @@ class SeedStatistics extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.global4-billing-management',
                 'type' => 'link',
                 'text' => 'Global 4 Billing Management Report',
@@ -53,6 +57,7 @@ class SeedStatistics extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.hometelecom-billing-management',
                 'type' => 'link',
                 'text' => 'Home Telecom Billing Management Report',
@@ -60,6 +65,7 @@ class SeedStatistics extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.weekly-billing-management',
                 'type' => 'link',
                 'text' => 'Weekly Broadband Billing Management Report',
@@ -67,6 +73,7 @@ class SeedStatistics extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.access-database',
                 'type' => 'link',
                 'text' => 'Access Database Statistics',
@@ -74,6 +81,7 @@ class SeedStatistics extends Seeder
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'statistics.accounts',
                 'type' => 'link',
                 'text' => 'Accounts',

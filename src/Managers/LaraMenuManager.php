@@ -85,13 +85,13 @@ class LaraMenuManager
         }
     }
 
-    public function loadMenu()
+    public function loadMenu($menubar)
     {
-        if($this->Cacher->alreadyCached()){
+        if($this->Cacher->alreadyCached($menubar)){
             $this->menu = $this->Cacher->loadCache();
         }else{
-            $this->importMenu();
-            $this->Cacher->cacheMenu($this->menu);
+            $this->importMenu($menubar);
+            $this->Cacher->cacheMenu($menubar, $this->menu);
         }
 
         return $this;
@@ -118,9 +118,9 @@ class LaraMenuManager
      * @param $config
      * @return $this
      */
-    protected function importMenu()
+    protected function importMenu($menubar)
     {
-        $menu = CoreMenu::where('disabled',0)->orderBy('priority')->get();
+        $menu = CoreMenu::where('disabled',0)->where('menubar', $menubar)->orderBy('priority')->get();
 
         $this->bulidMenuArray($menu);
 

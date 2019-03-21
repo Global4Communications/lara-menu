@@ -24,6 +24,7 @@ class SeedAffinity extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity',
                 'type' => 'dropdown',
                 'text' => 'Affinity',
@@ -31,6 +32,7 @@ class SeedAffinity extends Seeder
                 'allow_permissions' => 'view-affinity-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.sites',
                 'type' => 'link',
                 'text' => 'Sites',
@@ -38,6 +40,7 @@ class SeedAffinity extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.sub-sites',
                 'type' => 'link',
                 'text' => 'Sub Sites',
@@ -45,6 +48,7 @@ class SeedAffinity extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.clis',
                 'type' => 'link',
                 'text' => 'CLIs',
@@ -52,6 +56,7 @@ class SeedAffinity extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.product-items',
                 'type' => 'link',
                 'text' => 'Product Items',
@@ -59,6 +64,7 @@ class SeedAffinity extends Seeder
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.credit-control',
                 'type' => 'link',
                 'text' => 'Credit Control',
@@ -66,6 +72,7 @@ class SeedAffinity extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.bumped',
                 'type' => 'link',
                 'text' => 'Bumped Tickets',
@@ -73,6 +80,7 @@ class SeedAffinity extends Seeder
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.bumped-no-change',
                 'type' => 'link',
                 'text' => 'Bumped Tickets - No Change',
@@ -80,6 +88,7 @@ class SeedAffinity extends Seeder
                 'priority' => 7,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'affinity.call-report',
                 'type' => 'link',
                 'text' => 'Call Report',

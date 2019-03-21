@@ -24,6 +24,7 @@ class SeedUsers extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'users',
                 'type' => 'dropdown',
                 'text' => 'Users',
@@ -31,6 +32,7 @@ class SeedUsers extends Seeder
                 'allow_permissions' => 'view-users-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'users.list',
                 'type' => 'link',
                 'text' => 'List Users',
@@ -38,6 +40,7 @@ class SeedUsers extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'users.roles',
                 'type' => 'link',
                 'text' => 'Roles',

@@ -25,6 +25,7 @@ class SeedDev extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'dev',
                 'type' => 'dropdown',
                 'text' => 'Dev',
@@ -32,12 +33,14 @@ class SeedDev extends Seeder
                 'allow_roles' => 'dev'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.audits',
                 'type' => 'sub-dropdown',
                 'text' => 'Audits',
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.audits.database-audit',
                 'type' => 'link',
                 'text' => 'Database Audits',
@@ -45,6 +48,7 @@ class SeedDev extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.audits.controller-audit',
                 'type' => 'link',
                 'text' => 'Controller Audits',
@@ -52,6 +56,7 @@ class SeedDev extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.audits.console-audit',
                 'type' => 'link',
                 'text' => 'Console Audits',
@@ -59,6 +64,7 @@ class SeedDev extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.phpinfo',
                 'type' => 'link',
                 'text' => 'PHP Info',
@@ -66,6 +72,7 @@ class SeedDev extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.logs',
                 'type' => 'link',
                 'text' => 'Logs',
@@ -73,12 +80,14 @@ class SeedDev extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.jobs',
                 'type' => 'sub-dropdown',
                 'text' => 'Jobs',
                 'priority' => 4,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.jobs.outstanding',
                 'type' => 'link',
                 'text' => 'Jobs Outstanding',
@@ -86,6 +95,7 @@ class SeedDev extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.jobs.failed',
                 'type' => 'link',
                 'text' => 'Jobs Failed',
@@ -93,6 +103,7 @@ class SeedDev extends Seeder
                 'priority' => 2,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.jobs.completed',
                 'type' => 'link',
                 'text' => 'Jobs Completed',
@@ -100,6 +111,7 @@ class SeedDev extends Seeder
                 'priority' => 3,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.environment',
                 'type' => 'link',
                 'text' => 'Environment',
@@ -107,12 +119,14 @@ class SeedDev extends Seeder
                 'priority' => 5,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.affinity',
                 'type' => 'sub-dropdown',
                 'text' => 'Affinity',
                 'priority' => 6,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.affinity.functions',
                 'type' => 'link',
                 'text' => 'Affinity Functions',
@@ -120,6 +134,7 @@ class SeedDev extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.affinity.types',
                 'type' => 'link',
                 'text' => 'Affinity Types',
@@ -127,6 +142,7 @@ class SeedDev extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.wip-tickets',
                 'type' => 'link',
                 'text' => 'WIP Tickets',
@@ -134,6 +150,7 @@ class SeedDev extends Seeder
                 'priority' => 7,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.statistics',
                 'type' => 'link',
                 'text' => 'Statistics',
@@ -141,6 +158,7 @@ class SeedDev extends Seeder
                 'priority' => 8,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.mycalls',
                 'type' => 'link',
                 'text' => 'MyCalls Compare',
@@ -148,12 +166,14 @@ class SeedDev extends Seeder
                 'priority' => 8,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.elevate',
                 'type' => 'sub-dropdown',
                 'text' => 'Elevate',
                 'priority' => 10,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'dev.elevate.rental-products',
                 'type' => 'link',
                 'text' => 'Rental Products',

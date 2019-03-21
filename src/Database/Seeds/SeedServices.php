@@ -24,6 +24,7 @@ class SeedServices extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'services',
                 'type' => 'dropdown',
                 'text' => 'Services',
@@ -31,6 +32,7 @@ class SeedServices extends Seeder
                 'allow_permissions' => 'view-services-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'services.on-call',
                 'type' => 'link',
                 'text' => 'On Call Engineer',

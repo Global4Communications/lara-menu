@@ -25,6 +25,7 @@ class SeedIdealBroadband extends Seeder
     {
         return [
             [
+                'menubar' => 'core',
                 'namespace' => 'idealbroadband',
                 'type' => 'dropdown',
                 'text' => 'Ideal Broadband',
@@ -32,6 +33,7 @@ class SeedIdealBroadband extends Seeder
                 'allow_permissions' => 'view-ideal-broadband-dropdown'
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'idealbroadband.signup-form',
                 'type' => 'link',
                 'text' => 'Sign Up Form',
@@ -39,6 +41,7 @@ class SeedIdealBroadband extends Seeder
                 'priority' => 1,
             ],
             [
+                'menubar' => 'core',
                 'namespace' => 'idealbroadband.signuped-customers',
                 'type' => 'link',
                 'text' => 'Signed Up Customers',

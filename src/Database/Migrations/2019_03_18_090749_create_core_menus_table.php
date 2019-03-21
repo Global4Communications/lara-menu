@@ -16,6 +16,7 @@ class CreateCoreMenusTable extends Migration
         Schema::create('core_menus', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('menubar')->comment('The menu bar that this item belongs to IE: core, sales, etc');
             $table->string('namespace')->unique();
             $table->string('type');
             $table->string('text')->nullable()->default(null)->comment('Display text to show on the menu');

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class LaraMenuCacheManager
 {
-    protected $path = 'framework/cache/menus/core/';
+    protected $path = 'framework/cache/menus/';
     
     protected $filename;
 
@@ -24,15 +24,15 @@ class LaraMenuCacheManager
      * and return false, otherwise set the filename to the file and return true.
      * @return bool
      */
-    public function alreadyCached()
+    public function alreadyCached($menubar)
     {
-        $cache = Storage::files($this->path);
+        $cache = Storage::files($this->path . $menubar . '/');
 
         if($cache){
 
             $file = end($cache);
 
-            if($file == $this->path . $this->date->format('Ymd') . '.cache'){
+            if($file == $this->path . $menubar . '/' . $this->date->format('Ymd') . '.cache'){
                 $this->filename = $file;
                 return true;
             }else{
@@ -59,12 +59,12 @@ class LaraMenuCacheManager
      * Cache the menu data to storage.
      * @param $menu
      */
-    public function cacheMenu($menu)
+    public function cacheMenu($menubar, $menu)
     {
         $this->filename = $this->date->format('Ymd') . '.cache';
 
         $cache = serialize($menu);
 
-        Storage::put($this->path . $this->filename, $cache);
+        Storage::put($this->path . $menubar . '/' . $this->filename, $cache);
     }
 }
