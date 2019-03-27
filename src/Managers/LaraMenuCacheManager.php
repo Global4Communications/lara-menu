@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class LaraMenuCacheManager
 {
-    protected $path = 'framework/cache/menus/';
+    protected $path = 'cache/menus/';
     
     protected $filename;
 
