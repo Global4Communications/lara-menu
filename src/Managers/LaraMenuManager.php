@@ -36,12 +36,6 @@ class LaraMenuManager
     protected $Renderer;
 
     /**
-     * The manager for caching the menu
-     * @var LaraMenuCacheManager
-     */
-    protected $Cacher;
-
-    /**
      * The total menu components pulled from the database
      * @var
      */
@@ -60,7 +54,6 @@ class LaraMenuManager
 
         $this->Renderer = new LaraMenuRenderManager();
 
-        $this->Cacher = new LaraMenuCacheManager();
     }
 
     /**
@@ -87,12 +80,7 @@ class LaraMenuManager
 
     public function loadMenu($menubar)
     {
-        if($this->Cacher->alreadyCached($menubar)){
-            $this->menu = $this->Cacher->loadCache();
-        }else{
-            $this->importMenu($menubar);
-            $this->Cacher->cacheMenu($menubar, $this->menu);
-        }
+        $this->menu = $this->loadCache($menubar);
 
         return $this;
     }
@@ -120,11 +108,8 @@ class LaraMenuManager
      */
     protected function importMenu($menubar)
     {
-        $menu = CoreMenu::where('disabled',0)->where('menubar', $menubar)->orderBy('priority')->get();
+        return CoreMenu::where('disabled',0)->where('menubar', $menubar)->orderBy('priority')->get();
 
-        $this->bulidMenuArray($menu);
-
-        return $this;
     }
 
     /**
@@ -133,6 +118,8 @@ class LaraMenuManager
      */
     protected function bulidMenuArray($menu)
     {
+        $array = [];
+
         // setup the namespacing attrubutes for ordering
         foreach ($menu as $m){
             $m->namespacing();
@@ -142,9 +129,11 @@ class LaraMenuManager
         foreach ($menu as $item){
             if($item->level == 1){
 
-                $this->menu[] = $this->createMenuItem($item, $menu);
+                $array[] = $this->createMenuItem($item, $menu);
             }
         }
+
+        return $array;
 
     }
 
@@ -366,5 +355,23 @@ class LaraMenuManager
         }
 
         return $array;
+    }
+
+    /**
+     * Load the menu cache if present, or import the database records and build the menu and store to cache.
+     * @param $menubar
+     * @return mixed
+     */
+    protected function loadCache($menubar)
+    {
+        $cache = Cache::remember("menu_".$menubar, Carbon::tomorrow(), function($menubar){
+
+            $menu = $this->importMenu($menubar);
+
+            return $this->bulidMenuArray($menu);
+
+        });
+
+        return $cache;
     }
 }
