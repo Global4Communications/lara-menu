@@ -8,6 +8,7 @@ use Global4Communications\LaraMenu\MenuObjects\MenuHeaderItem;
 use Global4Communications\LaraMenu\MenuObjects\MenuSeparatorItem;
 use Global4Communications\LaraMenu\MenuObjects\SubDropdownItem;
 use Global4Communications\LaraMenu\Models\CoreMenu;
+use Carbon\Carbon;
 
 class LaraMenuManager
 {
@@ -364,7 +365,7 @@ class LaraMenuManager
      */
     protected function loadCache($menubar)
     {
-        $cache = Cache::remember("menu_".$menubar, Carbon::tomorrow(), function($menubar){
+        $cache = \Cache::remember("menu_".$menubar, Carbon::tomorrow(), function() use ($menubar){
 
             $menu = $this->importMenu($menubar);
 
