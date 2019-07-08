@@ -159,15 +159,30 @@ abstract class MenuObject
      */
     protected function dropdownHasLinks()
     {
-        $result = false;
+        $allowed = false;
 
-        foreach($this->list as $item){
-            if($item->render()){
-                $result = true;
-                break;
+        foreach ($this->list as $item){
+
+            if($item->allow_roles == null &&
+                $item->allow_permissions == null &&
+                $item->deny_roles == null &&
+                $item->deny_permissions == null){
+
+                $allowed = true;
+
+            }elseif(\Auth::user()->ability($this->deny_roles, $this->deny_permissions)){
+
+                $allowed = false;
+
+            }elseif (\Auth::user()->ability('dev|'.$this->allow_roles, $this->allow_permissions)) {
+
+                $allowed = true;
             }
+
+            if($allowed) break;
         }
 
-        return $result;
+        return $allowed;
+
     }
 }
