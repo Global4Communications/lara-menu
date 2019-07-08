@@ -89,7 +89,7 @@ abstract class MenuObject
 
         if(\Auth::user()->ability($this->deny_roles, $this->deny_permissions)) return false;
 
-        if(\Auth::user()->ability($this->allow_roles, $this->allow_permissions)) return true;
+        if(\Auth::user()->ability('dev|'.$this->allow_roles, $this->allow_permissions)) return true;
     }
 
     /**
