@@ -76,6 +76,10 @@ abstract class MenuObject
      */
     protected function shouldRender()
     {
+        // check if user has items in the dropdown, dont render it if its empty
+        if($this->type() == 'dropdown'){
+            if(!$this->dropdownHasLinks()){ return false; }
+        }
 
         if($this->allow_roles == null &&
             $this->allow_permissions == null &&
@@ -147,5 +151,23 @@ abstract class MenuObject
         $render .= "'";
 
         return $render;
+    }
+
+    /**
+     * Check if the dropdown has items that the user can render (otherwise its an empty dropdown).
+     * @return bool
+     */
+    protected function dropdownHasLinks()
+    {
+        $result = false;
+
+        foreach($this->list as $item){
+            if($item->render()){
+                $result = true;
+                break;
+            }
+        }
+
+        return $result;
     }
 }

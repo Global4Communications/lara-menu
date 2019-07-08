@@ -38,17 +38,21 @@ class DropdownItem extends MenuObject
     {
         // todo: add the classes and styles - where is best to put them?
 
-        $this->render .= "<li role='presentation' class='dropdown'>";
-        $this->render .= '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
-        $this->render .= $this->displayText . '<span class="caret"></span></a><ul class="dropdown-menu">';
+        if(empty($this->list)){
+            return $this->render;
+        }else{
+            $this->render .= "<li role='presentation' class='dropdown'>";
+            $this->render .= '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">';
+            $this->render .= $this->displayText . '<span class="caret"></span></a><ul class="dropdown-menu">';
 
-        foreach($this->list as $item){
-            $this->render .= $item->render(3);
+            foreach($this->list as $item){
+                $this->render .= $item->render(3);
+            }
+
+            $this->render .= "</ul></li>";
+
+            return $this->render;
         }
-
-        $this->render .= "</ul></li>";
-
-        return $this->render;
     }
 
     /**
