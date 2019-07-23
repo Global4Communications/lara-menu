@@ -170,11 +170,11 @@ abstract class MenuObject
 
                 $allowed = true;
 
-            }elseif(\Auth::user()->ability($this->deny_roles, $this->deny_permissions)){
+            }elseif(\Auth::user()->ability($item->deny_roles, $item->deny_permissions)){
 
                 $allowed = false;
 
-            }elseif (\Auth::user()->ability('dev|'.$this->allow_roles, $this->allow_permissions)) {
+            }elseif (\Auth::user()->ability('dev|'.$item->allow_roles, $item->allow_permissions)) {
 
                 $allowed = true;
             }
