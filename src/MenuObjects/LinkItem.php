@@ -72,6 +72,7 @@ class LinkItem extends MenuObject
         if(
             substr($this->route, 0, 7) == 'http://' ||
             substr($this->route, 0, 8) == 'https://' ||
+            substr($this->route, 0, 4) == 'dev.' ||
             substr($this->route, 0, 1) == '#'
         ){
             return $this->route;
