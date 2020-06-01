@@ -121,7 +121,7 @@ class LaraMenuManager
     {
         $array = [];
 
-        // setup the namespacing attrubutes for ordering
+        // setup the namespacing attriubutes for ordering
         foreach ($menu as $m){
             $m->namespacing();
             $m->level();
